@@ -61,7 +61,7 @@ int main()
        
         //PROMPT USER FOR DIFFICULTY SELECT
         //ADD DEBUG TO DISPLAY WORD VECTORS
-
+        targetWord = "Nothing";
         bool validDifficulty = false;
         int userDifficultyInput = 0;
 
@@ -119,25 +119,35 @@ int main()
 
         //PICK WORD FROM CORRECT COLLECTION
 
+        int wordIndex;
+
         switch (userDifficultyInput)
         {
         case 1:
             cout << "You have chosen a short word. Now selecting word...\n\n";
+            wordIndex = rand() % shortWords.size();
+            targetWord = shortWords[wordIndex];
             break;
         case 2:
             cout << "You have chosen a medium word. Now selecting word...\n\n";
+            wordIndex = rand() % mediumWords.size();
+            targetWord = mediumWords[wordIndex];
             break;
         case 3:
             cout << "You have chosen a long word. Now selecting word...\n\n";
+            wordIndex = rand() % longWords.size();
+            targetWord = longWords[wordIndex];
             break;
         }
 
 
 
 
-        
+        cout << "The word to guess is: " << targetWord << "\n\n";
 
         //INITIALISE GAME LOOP VARIABLES
+
+        currentNumOfIncorrectGuesses = startNumOfIncorrectGuesses;
 
         //IN GAME LOOP STARTS
         while (isPlayingRound)
