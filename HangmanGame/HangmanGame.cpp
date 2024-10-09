@@ -27,6 +27,10 @@ int main()
     vector<string> mediumWords;
     vector<string> longWords;
 
+    //Vector that keeps track of characters guessed
+    vector<char> correctCharGuesses;
+    vector<char> incorrectCharGuesses;
+
     //WORD COLLECTION POPULATION
     for (string wordToSort : wordArray)
     {
@@ -148,6 +152,8 @@ int main()
         //INITIALISE GAME LOOP VARIABLES
 
         currentNumOfIncorrectGuesses = startNumOfIncorrectGuesses;
+        correctCharGuesses.clear();
+        incorrectCharGuesses.clear();
 
         //IN GAME LOOP STARTS
         while (isPlayingRound)
