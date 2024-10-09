@@ -6,6 +6,302 @@
 #include <vector>
 using namespace std;
 
+void DrawHangmanImage(int incorrectGuessesLeft)
+{
+    switch (incorrectGuessesLeft)
+    {
+    case 12:
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n\n";
+        break;
+    case 11:
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\n";
+        cout << "====================================\n\n";
+        break;
+    case 10:
+        cout << "\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "====================================\n\n";
+        break;
+    case 9:
+        cout << "\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "  /|\n";
+        cout << " / | \n";
+        cout << "/  |  \n";
+        cout << "====================================\n\n";
+        break;
+    case 8:
+        cout << "\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    case 7:
+        cout << "+---------------------------+\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    case 6:
+        cout << "+---------------------------+\n";
+        cout << "   |       /\n";
+        cout << "   |      /\n";
+        cout << "   |     /\n";
+        cout << "   |    /\n";
+        cout << "   |   /\n";
+        cout << "   |  /\n";
+        cout << "   | /\n";
+        cout << "   |/\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    case 5:
+        cout << "+---------------------------+\n";
+        cout << "   |       /              |\n";
+        cout << "   |      /               |\n";
+        cout << "   |     /\n";
+        cout << "   |    /\n";
+        cout << "   |   /\n";
+        cout << "   |  /\n";
+        cout << "   | /\n";
+        cout << "   |/\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    case 4:
+        cout << "+---------------------------+\n";
+        cout << "   |       /              |\n";
+        cout << "   |      /               |\n";
+        cout << "   |     /            ---------\n";
+        cout << "   |    /           /           \\\n";
+        cout << "   |   /            |           |\n";
+        cout << "   |  /             |           |\n";
+        cout << "   | /               \\_________/\n";
+        cout << "   |/\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    case 3:
+        cout << "+---------------------------+\n";
+        cout << "   |       /              |\n";
+        cout << "   |      /               |\n";
+        cout << "   |     /            ---------\n";
+        cout << "   |    /           /           \\\n";
+        cout << "   |   /            |           |\n";
+        cout << "   |  /             |           |\n";
+        cout << "   | /               \\_________/\n";
+        cout << "   |/                     |\n";
+        cout << "   |                      | \n";
+        cout << "   |                      |\n";
+        cout << "   |                      |\n";
+        cout << "   |                      |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    case 2:
+        cout << "+---------------------------+\n";
+        cout << "   |       /              |\n";
+        cout << "   |      /               |\n";
+        cout << "   |     /            ---------\n";
+        cout << "   |    /           /           \\\n";
+        cout << "   |   /            |           |\n";
+        cout << "   |  /             |           |\n";
+        cout << "   | /               \\_________/\n";
+        cout << "   |/                     |\n";
+        cout << "   |                 ---- | ----\n";
+        cout << "   |                      |\n";
+        cout << "   |                      |\n";
+        cout << "   |                      |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    case 1:
+        cout << "+---------------------------+\n";
+        cout << "   |       /              |\n";
+        cout << "   |      /               |\n";
+        cout << "   |     /            ---------\n";
+        cout << "   |    /           /           \\\n";
+        cout << "   |   /            |           |\n";
+        cout << "   |  /             |           |\n";
+        cout << "   | /               \\_________/\n";
+        cout << "   |/                     |\n";
+        cout << "   |                 ---- | ----\n";
+        cout << "   |                      |\n";
+        cout << "   |                      |\n";
+        cout << "   |                      |\n";
+        cout << "   |                     /\n";
+        cout << "   |                    /\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    case 0:
+        cout << "+---------------------------+\n";
+        cout << "   |       /              |\n";
+        cout << "   |      /               |\n";
+        cout << "   |     /            ---------\n";
+        cout << "   |    /           /           \\\n";
+        cout << "   |   /            |           |\n";
+        cout << "   |  /             |           |\n";
+        cout << "   | /               \\_________/\n";
+        cout << "   |/                     |\n";
+        cout << "   |                 ---- | ----\n";
+        cout << "   |                      |\n";
+        cout << "   |                      |\n";
+        cout << "   |                      |\n";
+        cout << "   |                     / \\\n";
+        cout << "   |                    /   \\\n";
+        cout << "   |\n";
+        cout << "  /|\\\n";
+        cout << " / | \\\n";
+        cout << "/  |  \\\n";
+        cout << "====================================\n\n";
+        break;
+    }
+}
+
+
+
+
 int main()
 {
     //VARIABLE DECLARATION
@@ -154,29 +450,162 @@ int main()
         currentNumOfIncorrectGuesses = startNumOfIncorrectGuesses;
         correctCharGuesses.clear();
         incorrectCharGuesses.clear();
-
+        isPlayingRound = true;
         //IN GAME LOOP STARTS
         while (isPlayingRound)
         {
             //DRAW GAME STATUS
+            DrawHangmanImage(currentNumOfIncorrectGuesses);
+            cout << "++++++++++++++++++++++++++++++++++++\n\n";
+            //Show the word in progress
 
+            bool drawChar = false;
+            for (char c1 : targetWord)
+            {
+                drawChar = false;
+                for (char c2 : correctCharGuesses)
+                {
+                    if ((char) tolower(c1) ==(char) tolower(c2))
+                    {
+                        drawChar = true;
+                    }
+                    else
+                    {
+                        drawChar = false;
+                    }
+                                      
+                }
+
+                if (drawChar == true)
+                {
+                    cout << c1;
+                }
+                else
+                {
+                    cout << "[]";
+                }
+
+            }
+            cout << "\n";
+
+            //Display Contents of Incorrect guesses array
+            cout << "Incorrect letters: ";
+            for (char c : incorrectCharGuesses)
+            {
+                cout << c << " ";
+            }
+
+
+            cout << "\n";
+
+            cout << "Correct Letters: ";
+            for (char c : correctCharGuesses)
+            {
+                cout << c << " ";
+            }
+
+            cout << "\n";
+
+            bool validCharGuess = false;
+            bool notOnCorrectList = false;
+            bool notOnIncorrectList = false;
             //PROMPT USER FOR INPUT
-
             //VALIDATE INPUT
+            while (!validCharGuess)
+            {
+                cout << "Please Guess a Letter from the Word: ";
+                cin >> userGuess;
+                if (!isalpha(userGuess))
+                {
+                    cerr << "ERROR: Invalid input. Only input a single character.\n";
+                    validCharGuess = false;
+                    cin.ignore(100, '\n');
+                    cin.clear();
+                    
+                }
+                else
+                {
+                    for (char c1 : correctCharGuesses)
+                    {
+                        if ((char) tolower(userGuess) == (char) tolower(c1))
+                        {
+                            cout << "You have already guessed that letter. Please try another one. \n";
+                            notOnCorrectList = false;
+                              
+                            
+                        }
+                        else
+                        {
+                            notOnCorrectList = true;
+                        }
+                    }
 
-            //COMPARE INPUT TO TARGET WORD
+                    for (char c2 : incorrectCharGuesses)
+                    {
+                        if ((char) tolower(userGuess) == (char) tolower(c2))
+                        {
+                            cout << "You have already guessed tht letter. Please try another one. \n";
+                            notOnIncorrectList = false;
+                            
+                            
+                        }
+                        else
+                        {
+                            notOnIncorrectList = true;
+                        }
+                    }                    
+                }
 
+                
+
+            }
+            
+         //COMPARE INPUT TO TARGET WORD
+            bool successfulGuess = false;
+
+            for (char c : targetWord)
+            {
+                if ((char)tolower(c) ==(char) tolower(userGuess))
+                {
+                    successfulGuess = true;
+                    break;
+                }
+                else
+                {
+                    successfulGuess = false;
+                }
+            }
             //MODIFY GAME INFORMATION BASED ON GUESS
+            if (successfulGuess)
+            {
+                correctCharGuesses.push_back((char) tolower(userGuess));
+            }
+            else
+            {
+                incorrectCharGuesses.push_back((char)tolower(userGuess));
+                currentNumOfIncorrectGuesses--;
+            }
+
+            
+
+            
 
             //CHECK IF GAME IS OVER
+
+
+         }
+            
+            
+
+            
+            
+            //GAME IS OVER
+
+            //PROMPT USER TO PLAY AGAIN
         }
 
-        //GAME IS OVER
-
-        //PROMPT USER TO PLAY AGAIN
+        
 
     }
-
-
-}
+ 
 
