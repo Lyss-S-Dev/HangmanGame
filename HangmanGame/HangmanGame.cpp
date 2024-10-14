@@ -351,14 +351,14 @@ int main()
 
     }
 
-    
+
     //SHOW TITLE OF GAME
     cout << "THE NAME OF THE GAME IS...\n" << "HANGMAN!\n\n";
 
 
     while (isGameActive)
     {
-       
+
         //PROMPT USER FOR DIFFICULTY SELECT
         //ADD DEBUG TO DISPLAY WORD VECTORS
         targetWord = "Nothing";
@@ -460,29 +460,26 @@ int main()
             //Show the word in progress
 
             bool drawChar = false;
+
             for (char c1 : targetWord)
             {
                 drawChar = false;
+
                 for (char c2 : correctCharGuesses)
                 {
-                    if ((char) tolower(c1) ==(char) tolower(c2))
+                    if ((char)tolower(c1) == (char)tolower(c2))
                     {
+                        cout <<" "<< c1 << " ";
                         drawChar = true;
+                        break;
                     }
-                    else
-                    {
-                        drawChar = false;
-                    }
-                                      
+
+
                 }
 
-                if (drawChar == true)
+                if (!drawChar)
                 {
-                    cout << c1;
-                }
-                else
-                {
-                    cout << "[]";
+                    cout << "[.]";
                 }
 
             }
@@ -507,12 +504,12 @@ int main()
             cout << "\n";
 
             bool validCharGuess = false;
-            bool notOnCorrectList = false;
-            bool notOnIncorrectList = false;
+
             //PROMPT USER FOR INPUT
             //VALIDATE INPUT
             while (!validCharGuess)
             {
+                validCharGuess = true;
                 cout << "Please Guess a Letter from the Word: ";
                 cin >> userGuess;
                 if (!isalpha(userGuess))
@@ -521,91 +518,87 @@ int main()
                     validCharGuess = false;
                     cin.ignore(100, '\n');
                     cin.clear();
-                    
+
                 }
                 else
                 {
                     for (char c1 : correctCharGuesses)
                     {
-                        if ((char) tolower(userGuess) == (char) tolower(c1))
+                        if ((char)tolower(userGuess) == (char)tolower(c1))
                         {
                             cout << "You have already guessed that letter. Please try another one. \n";
-                            notOnCorrectList = false;
-                              
-                            
+                            validCharGuess = false;
+                            break;
+
                         }
-                        else
-                        {
-                            notOnCorrectList = true;
-                        }
+
+
+
                     }
 
                     for (char c2 : incorrectCharGuesses)
                     {
-                        if ((char) tolower(userGuess) == (char) tolower(c2))
+                        if ((char)tolower(userGuess) == (char)tolower(c2))
                         {
-                            cout << "You have already guessed tht letter. Please try another one. \n";
-                            notOnIncorrectList = false;
-                            
-                            
+                            cout << "You have already guessed that letter. Please try another one. \n";
+                            validCharGuess = false;
+                            break;
                         }
-                        else
-                        {
-                            notOnIncorrectList = true;
-                        }
-                    }                    
+
+                    }
+
+                    
+
                 }
 
-                
+                //COMPARE INPUT TO TARGET WORD
+                bool successfulGuess = false;
 
-            }
-            
-         //COMPARE INPUT TO TARGET WORD
-            bool successfulGuess = false;
-
-            for (char c : targetWord)
-            {
-                if ((char)tolower(c) ==(char) tolower(userGuess))
+                for (char c : targetWord)
                 {
-                    successfulGuess = true;
-                    break;
+                    if ((char)tolower(c) == (char)tolower(userGuess))
+                    {
+                        successfulGuess = true;
+                        break;
+                    }
+                    else
+                    {
+                        successfulGuess = false;
+                    }
+                }
+                //MODIFY GAME INFORMATION BASED ON GUESS
+                if (successfulGuess)
+                {
+                    correctCharGuesses.push_back((char)tolower(userGuess));
                 }
                 else
                 {
-                    successfulGuess = false;
+                    incorrectCharGuesses.push_back((char)tolower(userGuess));
+                    currentNumOfIncorrectGuesses--;
                 }
-            }
-            //MODIFY GAME INFORMATION BASED ON GUESS
-            if (successfulGuess)
-            {
-                correctCharGuesses.push_back((char) tolower(userGuess));
-            }
-            else
-            {
-                incorrectCharGuesses.push_back((char)tolower(userGuess));
-                currentNumOfIncorrectGuesses--;
+
+
+
+
+
+                //CHECK IF GAME IS OVER
+
+
             }
 
-            
-
-            
-
-            //CHECK IF GAME IS OVER
 
 
-         }
-            
-            
 
-            
-            
+
             //GAME IS OVER
 
             //PROMPT USER TO PLAY AGAIN
         }
 
-        
+
 
     }
+
+}
  
 
