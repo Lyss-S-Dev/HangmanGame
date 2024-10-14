@@ -308,6 +308,7 @@ int main()
 
     bool isGameActive = true;
     bool isPlayingRound = false;
+    bool isWin = false;
 
     string targetWord = "Nothing";
     char userGuess = 'Z';
@@ -451,6 +452,7 @@ int main()
         correctCharGuesses.clear();
         incorrectCharGuesses.clear();
         isPlayingRound = true;
+        isWin = false;
         //IN GAME LOOP STARTS
         while (isPlayingRound)
         {
@@ -578,15 +580,31 @@ int main()
                 }
 
 
-
-
-
                 //CHECK IF GAME IS OVER
+                if (currentNumOfIncorrectGuesses == 0)
+                {
+                    isPlayingRound = false;
+                    isWin = false;
+                    break;
+                }
+                else
+                {
+
+                }
+                
 
 
+              
             }
 
+            if (isWin)
+            {
 
+            }
+            else
+            {
+
+            }
 
 
 
