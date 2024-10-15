@@ -604,11 +604,30 @@ int main()
                     {
                         isPlayingRound = false;
                         isWin = false;
-                        break;
+                        
                     }
                     else
                     {
+                        int correctNumberOfGuesses = 0;
+                        for (char c1 : targetWord)
+                        {
+                            for(char c2: correctCharGuesses)
+                            {
+                                if ((char)tolower(c1) == (char)tolower(c2))
+                                {
+                                    correctNumberOfGuesses++;
+                                    
 
+
+                                }
+                            }
+                        }
+
+                        if (correctNumberOfGuesses >= targetWord.length())
+                        {
+                            isPlayingRound = false;
+                            isWin = true;
+                        }
                     }
                 }
                 
@@ -618,26 +637,62 @@ int main()
               
             }
 
-            if (isWin)
+            
+        }
+
+        DrawHangmanImage(currentNumOfIncorrectGuesses);
+
+        if (isWin)
+        {
+            cout << "You got it! The word was" << targetWord << '\n';
+        }
+        else
+        {
+            cout << "Oh no! You didn't get the word in time! The word was " << targetWord << '\n';
+        }
+
+        cout << '\n';
+
+        //GAME IS OVER
+        //PROMPT USER TO PLAY AGAIN
+
+
+        bool playAgainValid = false;
+        char playAgainChoice = 'z';
+
+        while (!playAgainValid)
+        {
+            playAgainValid = false;
+            cout << "Would you like to play again? y/n" << '\n';
+            cin >> playAgainChoice;
+
+            if ((char)tolower(playAgainChoice) == 'y' || (char)tolower(playAgainChoice) == 'n')
             {
-                //WIN MESSAGE
+                playAgainValid = true;
             }
             else
             {
-                //LOSE MESSAGE
+                cout << "ERROR: Invalid Input, please enter 'y' for yes or 'n' for no\n";
+                playAgainValid = false;
+                cin.clear();
+                cin.ignore(100, '\n');
             }
-
-
-
-            //GAME IS OVER
-
-            //PROMPT USER TO PLAY AGAIN
         }
 
+        switch ((char)tolower(playAgainChoice))
+        {
+        case 'y':
+            cout << "\n\n\n";
+            break;
 
+        case 'n':
+            isGameActive = false;
+            break;
+        }
 
     }
 
+ 
 }
  
 
