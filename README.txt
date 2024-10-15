@@ -1,0 +1,1 @@
+How To Play the Game of Hangman
