@@ -299,6 +299,23 @@ void DrawHangmanImage(int incorrectGuessesLeft)
     }
 }
 
+void DrawGuessArrays(vector<char> crctGuess, vector<char> incrctGuess)
+{
+    cout << "Incorrect letters: ";
+    for (char c : incrctGuess)
+    {
+        cout << c << " ";
+    }
+
+
+    cout << "\n";
+
+    cout << "Correct Letters: ";
+    for (char c : crctGuess)
+    {
+        cout << c << " ";
+    }
+}
 
 
 
@@ -311,7 +328,7 @@ int main()
     bool isWin = false;
 
     string targetWord = "Nothing";
-    char userGuess = 'Z';
+    char userGuess;
 
     const int startNumOfIncorrectGuesses = 12;
     int currentNumOfIncorrectGuesses;
@@ -487,21 +504,8 @@ int main()
             }
             cout << "\n";
 
-            //Display Contents of Incorrect guesses array
-            cout << "Incorrect letters: ";
-            for (char c : incorrectCharGuesses)
-            {
-                cout << c << " ";
-            }
-
-
-            cout << "\n";
-
-            cout << "Correct Letters: ";
-            for (char c : correctCharGuesses)
-            {
-                cout << c << " ";
-            }
+            //Display Contents of Incorrect and Correct guesses array
+            DrawGuessArrays(correctCharGuesses, incorrectCharGuesses);
 
             cout << "\n";
 
@@ -514,12 +518,14 @@ int main()
                 validCharGuess = true;
                 cout << "Please Guess a Letter from the Word: ";
                 cin >> userGuess;
-                if (!isalpha(userGuess))
+                
+                if (!isalpha(userGuess) || cin.fail())
                 {
                     cerr << "ERROR: Invalid input. Only input a single character.\n";
                     validCharGuess = false;
-                    cin.ignore(100, '\n');
                     cin.clear();
+                    cin.ignore(100, '\n');
+                    
 
                 }
                 else
@@ -529,6 +535,10 @@ int main()
                         if ((char)tolower(userGuess) == (char)tolower(c1))
                         {
                             cout << "You have already guessed that letter. Please try another one. \n";
+                            
+                            cin.clear();
+                            cin.ignore(100, '\n');
+                            
                             validCharGuess = false;
                             break;
 
@@ -543,6 +553,9 @@ int main()
                         if ((char)tolower(userGuess) == (char)tolower(c2))
                         {
                             cout << "You have already guessed that letter. Please try another one. \n";
+                            cin.clear();
+                            cin.ignore(100, '\n');
+                            
                             validCharGuess = false;
                             break;
                         }
@@ -553,44 +566,52 @@ int main()
 
                 }
 
-                //COMPARE INPUT TO TARGET WORD
-                bool successfulGuess = false;
+                //IMPORTANT LINES DO NOT DELETE. Clears input stream. Prevents multiple characters from being checked.
+                cin.clear();
+                cin.ignore(100, '\n');
 
-                for (char c : targetWord)
+                //COMPARE INPUT TO TARGET WORD
+                if (validCharGuess)
                 {
-                    if ((char)tolower(c) == (char)tolower(userGuess))
+                    bool successfulGuess = false;
+
+                    for (char c : targetWord)
                     {
-                        successfulGuess = true;
+                        if ((char)tolower(c) == (char)tolower(userGuess))
+                        {
+                            successfulGuess = true;
+                            break;
+                        }
+                        else
+                        {
+                            successfulGuess = false;
+                        }
+                    }
+                    //MODIFY GAME INFORMATION BASED ON GUESS
+                    if (successfulGuess)
+                    {
+                        correctCharGuesses.push_back((char)tolower(userGuess));
+                    }
+                    else
+                    {
+                        incorrectCharGuesses.push_back((char)tolower(userGuess));
+                        currentNumOfIncorrectGuesses--;
+                    }
+
+
+                    //CHECK IF GAME IS OVER
+                    if (currentNumOfIncorrectGuesses == 0)
+                    {
+                        isPlayingRound = false;
+                        isWin = false;
                         break;
                     }
                     else
                     {
-                        successfulGuess = false;
+
                     }
                 }
-                //MODIFY GAME INFORMATION BASED ON GUESS
-                if (successfulGuess)
-                {
-                    correctCharGuesses.push_back((char)tolower(userGuess));
-                }
-                else
-                {
-                    incorrectCharGuesses.push_back((char)tolower(userGuess));
-                    currentNumOfIncorrectGuesses--;
-                }
-
-
-                //CHECK IF GAME IS OVER
-                if (currentNumOfIncorrectGuesses == 0)
-                {
-                    isPlayingRound = false;
-                    isWin = false;
-                    break;
-                }
-                else
-                {
-
-                }
+                
                 
 
 
@@ -599,11 +620,11 @@ int main()
 
             if (isWin)
             {
-
+                //WIN MESSAGE
             }
             else
             {
-
+                //LOSE MESSAGE
             }
 
 
