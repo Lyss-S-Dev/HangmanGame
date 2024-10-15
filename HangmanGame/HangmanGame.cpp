@@ -376,6 +376,9 @@ int main()
 
     while (isGameActive)
     {
+        cin.clear();
+        cin.ignore(100, '\n');
+
 
         //PROMPT USER FOR DIFFICULTY SELECT
         //ADD DEBUG TO DISPLAY WORD VECTORS
@@ -644,7 +647,7 @@ int main()
 
         if (isWin)
         {
-            cout << "You got it! The word was" << targetWord << '\n';
+            cout << "You got it! The word was " << targetWord << '\n';
         }
         else
         {
@@ -665,6 +668,8 @@ int main()
             playAgainValid = false;
             cout << "Would you like to play again? y/n" << '\n';
             cin >> playAgainChoice;
+
+            
 
             if ((char)tolower(playAgainChoice) == 'y' || (char)tolower(playAgainChoice) == 'n')
             {
