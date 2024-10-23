@@ -1,352 +1,382 @@
 // HangmanGame.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
+
+#include "HangmanGame.h"
+
 
 void DrawHangmanImage(int incorrectGuessesLeft)
 {
     switch (incorrectGuessesLeft)
     {
     case 12:
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n\n";
         break;
     case 11:
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "\n";
-        cout << "====================================\n\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "====================================\n\n";
         break;
     case 10:
-        cout << "\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "====================================\n\n";
+        std::cout << "\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "====================================\n\n";
         break;
     case 9:
-        cout << "\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "  /|\n";
-        cout << " / | \n";
-        cout << "/  |  \n";
-        cout << "====================================\n\n";
+        std::cout << "\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\n";
+        std::cout << " / | \n";
+        std::cout << "/  |  \n";
+        std::cout << "====================================\n\n";
         break;
     case 8:
-        cout << "\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     case 7:
-        cout << "+---------------------------+\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "+---------------------------+\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     case 6:
-        cout << "+---------------------------+\n";
-        cout << "   |       /\n";
-        cout << "   |      /\n";
-        cout << "   |     /\n";
-        cout << "   |    /\n";
-        cout << "   |   /\n";
-        cout << "   |  /\n";
-        cout << "   | /\n";
-        cout << "   |/\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "+---------------------------+\n";
+        std::cout << "   |       /\n";
+        std::cout << "   |      /\n";
+        std::cout << "   |     /\n";
+        std::cout << "   |    /\n";
+        std::cout << "   |   /\n";
+        std::cout << "   |  /\n";
+        std::cout << "   | /\n";
+        std::cout << "   |/\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     case 5:
-        cout << "+---------------------------+\n";
-        cout << "   |       /              |\n";
-        cout << "   |      /               |\n";
-        cout << "   |     /\n";
-        cout << "   |    /\n";
-        cout << "   |   /\n";
-        cout << "   |  /\n";
-        cout << "   | /\n";
-        cout << "   |/\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "+---------------------------+\n";
+        std::cout << "   |       /              |\n";
+        std::cout << "   |      /               |\n";
+        std::cout << "   |     /\n";
+        std::cout << "   |    /\n";
+        std::cout << "   |   /\n";
+        std::cout << "   |  /\n";
+        std::cout << "   | /\n";
+        std::cout << "   |/\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     case 4:
-        cout << "+---------------------------+\n";
-        cout << "   |       /              |\n";
-        cout << "   |      /               |\n";
-        cout << "   |     /            ---------\n";
-        cout << "   |    /           /           \\\n";
-        cout << "   |   /            |           |\n";
-        cout << "   |  /             |           |\n";
-        cout << "   | /               \\_________/\n";
-        cout << "   |/\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "+---------------------------+\n";
+        std::cout << "   |       /              |\n";
+        std::cout << "   |      /               |\n";
+        std::cout << "   |     /            ---------\n";
+        std::cout << "   |    /           /           \\\n";
+        std::cout << "   |   /            |           |\n";
+        std::cout << "   |  /             |           |\n";
+        std::cout << "   | /               \\_________/\n";
+        std::cout << "   |/\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     case 3:
-        cout << "+---------------------------+\n";
-        cout << "   |       /              |\n";
-        cout << "   |      /               |\n";
-        cout << "   |     /            ---------\n";
-        cout << "   |    /           /           \\\n";
-        cout << "   |   /            |           |\n";
-        cout << "   |  /             |           |\n";
-        cout << "   | /               \\_________/\n";
-        cout << "   |/                     |\n";
-        cout << "   |                      | \n";
-        cout << "   |                      |\n";
-        cout << "   |                      |\n";
-        cout << "   |                      |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "+---------------------------+\n";
+        std::cout << "   |       /              |\n";
+        std::cout << "   |      /               |\n";
+        std::cout << "   |     /            ---------\n";
+        std::cout << "   |    /           /           \\\n";
+        std::cout << "   |   /            |           |\n";
+        std::cout << "   |  /             |           |\n";
+        std::cout << "   | /               \\_________/\n";
+        std::cout << "   |/                     |\n";
+        std::cout << "   |                      | \n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     case 2:
-        cout << "+---------------------------+\n";
-        cout << "   |       /              |\n";
-        cout << "   |      /               |\n";
-        cout << "   |     /            ---------\n";
-        cout << "   |    /           /           \\\n";
-        cout << "   |   /            |           |\n";
-        cout << "   |  /             |           |\n";
-        cout << "   | /               \\_________/\n";
-        cout << "   |/                     |\n";
-        cout << "   |                 ---- | ----\n";
-        cout << "   |                      |\n";
-        cout << "   |                      |\n";
-        cout << "   |                      |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "+---------------------------+\n";
+        std::cout << "   |       /              |\n";
+        std::cout << "   |      /               |\n";
+        std::cout << "   |     /            ---------\n";
+        std::cout << "   |    /           /           \\\n";
+        std::cout << "   |   /            |           |\n";
+        std::cout << "   |  /             |           |\n";
+        std::cout << "   | /               \\_________/\n";
+        std::cout << "   |/                     |\n";
+        std::cout << "   |                 ---- | ----\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     case 1:
-        cout << "+---------------------------+\n";
-        cout << "   |       /              |\n";
-        cout << "   |      /               |\n";
-        cout << "   |     /            ---------\n";
-        cout << "   |    /           /           \\\n";
-        cout << "   |   /            |           |\n";
-        cout << "   |  /             |           |\n";
-        cout << "   | /               \\_________/\n";
-        cout << "   |/                     |\n";
-        cout << "   |                 ---- | ----\n";
-        cout << "   |                      |\n";
-        cout << "   |                      |\n";
-        cout << "   |                      |\n";
-        cout << "   |                     /\n";
-        cout << "   |                    /\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "+---------------------------+\n";
+        std::cout << "   |       /              |\n";
+        std::cout << "   |      /               |\n";
+        std::cout << "   |     /            ---------\n";
+        std::cout << "   |    /           /           \\\n";
+        std::cout << "   |   /            |           |\n";
+        std::cout << "   |  /             |           |\n";
+        std::cout << "   | /               \\_________/\n";
+        std::cout << "   |/                     |\n";
+        std::cout << "   |                 ---- | ----\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                     /\n";
+        std::cout << "   |                    /\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     case 0:
-        cout << "+---------------------------+\n";
-        cout << "   |       /              |\n";
-        cout << "   |      /               |\n";
-        cout << "   |     /            ---------\n";
-        cout << "   |    /           /           \\\n";
-        cout << "   |   /            |           |\n";
-        cout << "   |  /             |           |\n";
-        cout << "   | /               \\_________/\n";
-        cout << "   |/                     |\n";
-        cout << "   |                 ---- | ----\n";
-        cout << "   |                      |\n";
-        cout << "   |                      |\n";
-        cout << "   |                      |\n";
-        cout << "   |                     / \\\n";
-        cout << "   |                    /   \\\n";
-        cout << "   |\n";
-        cout << "  /|\\\n";
-        cout << " / | \\\n";
-        cout << "/  |  \\\n";
-        cout << "====================================\n\n";
+        std::cout << "+---------------------------+\n";
+        std::cout << "   |       /              |\n";
+        std::cout << "   |      /               |\n";
+        std::cout << "   |     /            ---------\n";
+        std::cout << "   |    /           /           \\\n";
+        std::cout << "   |   /            |           |\n";
+        std::cout << "   |  /             |           |\n";
+        std::cout << "   | /               \\_________/\n";
+        std::cout << "   |/                     |\n";
+        std::cout << "   |                 ---- | ----\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                      |\n";
+        std::cout << "   |                     / \\\n";
+        std::cout << "   |                    /   \\\n";
+        std::cout << "   |\n";
+        std::cout << "  /|\\\n";
+        std::cout << " / | \\\n";
+        std::cout << "/  |  \\\n";
+        std::cout << "====================================\n\n";
         break;
     }
 }
 
-void DrawGuessArrays(vector<char> crctGuess, vector<char> incrctGuess)
+void DrawGuessArrays(std::vector<char> crctGuess, std::vector<char> incrctGuess)
 {
-    cout << "Incorrect letters: ";
+    std::cout << "Incorrect letters: ";
     for (char c : incrctGuess)
     {
-        cout << c << " ";
+        std::cout << c << " ";
     }
 
 
-    cout << "\n";
+    std::cout << "\n";
 
-    cout << "Correct Letters: ";
+    std::cout << "Correct Letters: ";
     for (char c : crctGuess)
     {
-        cout << c << " ";
+        std::cout << c << " ";
     }
 }
 
-
-
-int main()
+void CheckGameIsOver()
 {
-    //VARIABLE DECLARATION
+    if (currentNumOfIncorrectGuesses == 0)
+    {
+        isPlayingRound = false;
+        isWin = false;
 
-    bool isGameActive = true;
-    bool isPlayingRound = false;
-    bool isWin = false;
+    }
+    else
+    {
+        int correctNumberOfGuesses = 0;
+        for (char c1 : targetWord)
+        {
+            for (char c2 : correctCharGuesses)
+            {
+                if ((char)tolower(c1) == (char)tolower(c2))
+                {
+                    correctNumberOfGuesses++;
 
-    string targetWord = "Nothing";
-    char userGuess;
 
-    const int startNumOfIncorrectGuesses = 12;
-    int currentNumOfIncorrectGuesses;
 
-    //ARRAYS AND VECTORS
-    string wordArray[] = { "Banana", "Apple", "Pomegranite", "Dragonfruit", "Cheeseburger", "Milk", "Wheat", "Soup", "Pasta", "Sauasage", "Toothpaste", "Bleach", "Cashew", "Peanut" };
+                }
+            }
+        }
 
-    //3 Vectors that the words from the word array will be sorted into. Words will be selected from the array the user chooses at game start.
-    vector<string> shortWords;
-    vector<string> mediumWords;
-    vector<string> longWords;
+        if (correctNumberOfGuesses >= targetWord.length())
+        {
+            isPlayingRound = false;
+            isWin = true;
+        }
+    }
+}
 
-    //Vector that keeps track of characters guessed
-    vector<char> correctCharGuesses;
-    vector<char> incorrectCharGuesses;
+std::string PickWordToGuess(int difficulty)
+{
+    int wordIndex;
+    srand(time(0));
 
-    //WORD COLLECTION POPULATION
-    for (string wordToSort : wordArray)
+    switch (difficulty)
+    {
+    case 1:
+        std::cout << "You have chosen a short word. Now selecting word...\n\n";
+        wordIndex = rand() % shortWords.size();
+        return shortWords[wordIndex];
+        
+    case 2:
+        std::cout << "You have chosen a medium word. Now selecting word...\n\n";
+        wordIndex = rand() % mediumWords.size();
+        return mediumWords[wordIndex];
+        
+    case 3:
+        std::cout << "You have chosen a long word. Now selecting word...\n\n";
+        wordIndex = rand() % longWords.size();
+        return longWords[wordIndex];
+        
+    }
+}
+
+void PopulateWordArrays()
+{
+    for (std::string wordToSort : wordArray)
     {
         int wordLength = wordToSort.length();
 
@@ -368,18 +398,146 @@ int main()
         }
 
     }
+}
+
+void PrintWordArrays()
+{
+    std::cout << "Printing word lists...\n\n";
+    std::cout << "SHORT WORDS: \n";
+    for (std::string sWord : shortWords)
+    {
+        std::cout << sWord << ", ";
+    }
+    std::cout << "\n";
+    std::cout << shortWords.size() << " words in the list\n";
+
+    std::cout << "MEDIUM WORDS: \n";
+    for (std::string mWord : mediumWords)
+    {
+        std::cout << mWord << ", ";
+    }
+    std::cout << "\n";
+    std::cout << mediumWords.size() << " words in the list\n";
+
+    std::cout << "LONG WORDS: \n";
+    for (std::string lWord : longWords)
+    {
+        std::cout << lWord << ", ";
+    }
+    std::cout << "\n";
+    std::cout << longWords.size() << " words in the list\n";
+    std::cout << "ALL LISTS PRINTED\n\n";
+}
+
+void DrawWordToGuess()
+{
+    bool drawChar = false;
+
+    for (char c1 : targetWord)
+    {
+        drawChar = false;
+
+        for (char c2 : correctCharGuesses)
+        {
+            if ((char)tolower(c1) == (char)tolower(c2))
+            {
+                std::cout << " " << c1 << " ";
+                drawChar = true;
+                break;
+            }
+
+
+        }
+
+        if (!drawChar)
+        {
+            std::cout << "[.]";
+        }
+
+    }
+}
+
+void CheckGuessIsCorrect()
+{
+    bool successfulGuess = false;
+
+    for (char c : targetWord)
+    {
+        if ((char)tolower(c) == (char)tolower(userGuess))
+        {
+            successfulGuess = true;
+            break;
+        }
+        else
+        {
+            successfulGuess = false;
+        }
+    }
+    //MODIFY GAME INFORMATION BASED ON GUESS
+    if (successfulGuess)
+    {
+        correctCharGuesses.push_back((char)tolower(userGuess));
+    }
+    else
+    {
+        incorrectCharGuesses.push_back((char)tolower(userGuess));
+        currentNumOfIncorrectGuesses--;
+    }
+}
+
+void CheckPlayerWantsToPlayAgain()
+{
+    bool playAgainValid = false;
+    char playAgainChoice = 'z';
+
+    while (!playAgainValid)
+    {
+        playAgainValid = false;
+        std::cout << "Would you like to play again? y/n" << '\n';
+        std::cin >> playAgainChoice;
+
+
+
+        if ((char)tolower(playAgainChoice) == 'y' || (char)tolower(playAgainChoice) == 'n')
+        {
+            playAgainValid = true;
+        }
+        else
+        {
+            std::cout << "ERROR: Invalid Input, please enter 'y' for yes or 'n' for no\n";
+            playAgainValid = false;
+            std::cin.clear();
+            std::cin.ignore(100, '\n');
+        }
+    }
+
+    switch ((char)tolower(playAgainChoice))
+    {
+    case 'y':
+        std::cout << "\n\n\n";
+        break;
+
+    case 'n':
+        isGameActive = false;
+        break;
+    }
+}
+
+int main()
+{
+    
+
+    //WORD COLLECTION POPULATION
+    PopulateWordArrays();
 
 
     //SHOW TITLE OF GAME
-    cout << "THE NAME OF THE GAME IS...\n" << "HANGMAN!\n\n";
+    std::cout << "THE NAME OF THE GAME IS...\n" << "HANGMAN!\n\n";
 
 
     while (isGameActive)
     {
-        cin.clear();
-        cin.ignore(100, '\n');
-
-
+ 
         //PROMPT USER FOR DIFFICULTY SELECT
         //ADD DEBUG TO DISPLAY WORD VECTORS
         targetWord = "Nothing";
@@ -388,10 +546,10 @@ int main()
 
         while (!validDifficulty)
         {
-            cin.clear();
-            cout << "Please enter a number to select your difficulty!\n";
-            cout << "1. Short Word  2. Medium Word  3. Long Word\n4.DEBUG: Display Word Lists\n\n";
-            cin >> userDifficultyInput;
+            std::cin.clear();
+            std::cout << "Please enter a number to select your difficulty!\n";
+            std::cout << "1. Short Word  2. Medium Word  3. Long Word\n4.DEBUG: Display Word Lists\n\n";
+            std::cin >> userDifficultyInput;
 
             if (userDifficultyInput >= 1 && userDifficultyInput <= 3)
             {
@@ -399,72 +557,26 @@ int main()
             }
             else if (userDifficultyInput == 4)
             {
-                cout << "Printing word lists...\n\n";
-                cout << "SHORT WORDS: \n";
-                for (string sWord : shortWords)
-                {
-                    cout << sWord << ", ";
-                }
-                cout << "\n";
-                cout << shortWords.size() << " words in the list\n";
-
-                cout << "MEDIUM WORDS: \n";
-                for (string mWord : mediumWords)
-                {
-                    cout << mWord << ", ";
-                }
-                cout << "\n";
-                cout << mediumWords.size() << " words in the list\n";
-
-                cout << "LONG WORDS: \n";
-                for (string lWord : longWords)
-                {
-                    cout << lWord << ", ";
-                }
-                cout << "\n";
-                cout << longWords.size() << " words in the list\n";
-                cout << "ALL LISTS PRINTED\n\n";
+                PrintWordArrays();
                 validDifficulty = false;
 
             }
             else
             {
-                cin.clear();
-                cin.ignore(1000, '\n');
-                cerr << "ERROR: Invalid Input. Please enter one of the options listed \n\n";
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
+                std::cerr << "ERROR: Invalid Input. Please enter one of the options listed \n\n";
                 validDifficulty = false;
             }
         }
 
-        cout << '\n';
+        std::cout << '\n';
 
         //PICK WORD FROM CORRECT COLLECTION
+    
+        targetWord = PickWordToGuess(userDifficultyInput);
 
-        int wordIndex;
-
-        switch (userDifficultyInput)
-        {
-        case 1:
-            cout << "You have chosen a short word. Now selecting word...\n\n";
-            wordIndex = rand() % shortWords.size();
-            targetWord = shortWords[wordIndex];
-            break;
-        case 2:
-            cout << "You have chosen a medium word. Now selecting word...\n\n";
-            wordIndex = rand() % mediumWords.size();
-            targetWord = mediumWords[wordIndex];
-            break;
-        case 3:
-            cout << "You have chosen a long word. Now selecting word...\n\n";
-            wordIndex = rand() % longWords.size();
-            targetWord = longWords[wordIndex];
-            break;
-        }
-
-
-
-
-        cout << "The word to guess is: " << targetWord << "\n\n";
+        std::cout << "DEBUG The word to guess is: " << targetWord << "\n\n";
 
         //INITIALISE GAME LOOP VARIABLES
 
@@ -473,44 +585,23 @@ int main()
         incorrectCharGuesses.clear();
         isPlayingRound = true;
         isWin = false;
+
         //IN GAME LOOP STARTS
         while (isPlayingRound)
         {
             //DRAW GAME STATUS
             DrawHangmanImage(currentNumOfIncorrectGuesses);
-            cout << "++++++++++++++++++++++++++++++++++++\n\n";
+            std::cout << "++++++++++++++++++++++++++++++++++++\n\n";
+            
             //Show the word in progress
-
-            bool drawChar = false;
-
-            for (char c1 : targetWord)
-            {
-                drawChar = false;
-
-                for (char c2 : correctCharGuesses)
-                {
-                    if ((char)tolower(c1) == (char)tolower(c2))
-                    {
-                        cout <<" "<< c1 << " ";
-                        drawChar = true;
-                        break;
-                    }
-
-
-                }
-
-                if (!drawChar)
-                {
-                    cout << "[.]";
-                }
-
-            }
-            cout << "\n";
+            DrawWordToGuess();
+            
+            std::cout << "\n";
 
             //Display Contents of Incorrect and Correct guesses array
             DrawGuessArrays(correctCharGuesses, incorrectCharGuesses);
 
-            cout << "\n";
+            std::cout << "\n";
 
             bool validCharGuess = false;
 
@@ -519,15 +610,16 @@ int main()
             while (!validCharGuess)
             {
                 validCharGuess = true;
-                cout << "Please Guess a Letter from the Word: ";
-                cin >> userGuess;
+                std::cout << "Please Guess a Letter from the Word: ";
+                std::cin >> userGuess;
                 
-                if (!isalpha(userGuess) || cin.fail())
+                if (!isalpha(userGuess) || std::cin.fail())
                 {
-                    cerr << "ERROR: Invalid input. Only input a single character.\n";
+                    std::cerr << "ERROR: Invalid input. Only input a single character.\n";
                     validCharGuess = false;
-                    cin.clear();
-                    cin.ignore(100, '\n');
+                    std::cin.ignore(100, '\n');
+                    std::cin.clear();
+                    
                     
 
                 }
@@ -537,10 +629,10 @@ int main()
                     {
                         if ((char)tolower(userGuess) == (char)tolower(c1))
                         {
-                            cout << "You have already guessed that letter. Please try another one. \n";
+                            std::cout << "You have already guessed that letter. Please try another one. \n";
+                            std::cin.ignore(100, '\n');
+                            std::cin.clear();
                             
-                            cin.clear();
-                            cin.ignore(100, '\n');
                             
                             validCharGuess = false;
                             break;
@@ -555,9 +647,10 @@ int main()
                     {
                         if ((char)tolower(userGuess) == (char)tolower(c2))
                         {
-                            cout << "You have already guessed that letter. Please try another one. \n";
-                            cin.clear();
-                            cin.ignore(100, '\n');
+                            std::cout << "You have already guessed that letter. Please try another one. \n";
+                            std::cin.ignore(100, '\n');
+                            std::cin.clear();
+                            
                             
                             validCharGuess = false;
                             break;
@@ -570,68 +663,17 @@ int main()
                 }
 
                 //IMPORTANT LINES DO NOT DELETE. Clears input stream. Prevents multiple characters from being checked.
-                cin.clear();
-                cin.ignore(100, '\n');
+                std::cin.clear();
+                std::cin.ignore(100, '\n');
 
                 //COMPARE INPUT TO TARGET WORD
                 if (validCharGuess)
                 {
-                    bool successfulGuess = false;
-
-                    for (char c : targetWord)
-                    {
-                        if ((char)tolower(c) == (char)tolower(userGuess))
-                        {
-                            successfulGuess = true;
-                            break;
-                        }
-                        else
-                        {
-                            successfulGuess = false;
-                        }
-                    }
-                    //MODIFY GAME INFORMATION BASED ON GUESS
-                    if (successfulGuess)
-                    {
-                        correctCharGuesses.push_back((char)tolower(userGuess));
-                    }
-                    else
-                    {
-                        incorrectCharGuesses.push_back((char)tolower(userGuess));
-                        currentNumOfIncorrectGuesses--;
-                    }
+                    CheckGuessIsCorrect();
 
 
                     //CHECK IF GAME IS OVER
-                    if (currentNumOfIncorrectGuesses == 0)
-                    {
-                        isPlayingRound = false;
-                        isWin = false;
-                        
-                    }
-                    else
-                    {
-                        int correctNumberOfGuesses = 0;
-                        for (char c1 : targetWord)
-                        {
-                            for(char c2: correctCharGuesses)
-                            {
-                                if ((char)tolower(c1) == (char)tolower(c2))
-                                {
-                                    correctNumberOfGuesses++;
-                                    
-
-
-                                }
-                            }
-                        }
-
-                        if (correctNumberOfGuesses >= targetWord.length())
-                        {
-                            isPlayingRound = false;
-                            isWin = true;
-                        }
-                    }
+                    CheckGameIsOver();
                 }
                 
                 
@@ -647,53 +689,21 @@ int main()
 
         if (isWin)
         {
-            cout << "You got it! The word was " << targetWord << '\n';
+            std::cout << "You got it! The word was " << targetWord << '\n';
         }
         else
         {
-            cout << "Oh no! You didn't get the word in time! The word was " << targetWord << '\n';
+            std::cout << "Oh no! You didn't get the word in time! The word was " << targetWord << '\n';
         }
 
-        cout << '\n';
+        std::cout << '\n';
 
         //GAME IS OVER
         //PROMPT USER TO PLAY AGAIN
 
+        CheckPlayerWantsToPlayAgain();
 
-        bool playAgainValid = false;
-        char playAgainChoice = 'z';
-
-        while (!playAgainValid)
-        {
-            playAgainValid = false;
-            cout << "Would you like to play again? y/n" << '\n';
-            cin >> playAgainChoice;
-
-            
-
-            if ((char)tolower(playAgainChoice) == 'y' || (char)tolower(playAgainChoice) == 'n')
-            {
-                playAgainValid = true;
-            }
-            else
-            {
-                cout << "ERROR: Invalid Input, please enter 'y' for yes or 'n' for no\n";
-                playAgainValid = false;
-                cin.clear();
-                cin.ignore(100, '\n');
-            }
-        }
-
-        switch ((char)tolower(playAgainChoice))
-        {
-        case 'y':
-            cout << "\n\n\n";
-            break;
-
-        case 'n':
-            isGameActive = false;
-            break;
-        }
+        
 
     }
 
