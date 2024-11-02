@@ -15,8 +15,7 @@ char userGuess;
 const int startNumOfIncorrectGuesses = 12;
 int currentNumOfIncorrectGuesses;
 
-//ARRAYS AND VECTORS
-std::string wordArray[] = { "Banana", "Apple", "Pomegranite", "Dragonfruit", "Cheeseburger", "Milk", "Wheat", "Soup", "Pasta", "Sauasage", "Toothpaste", "Bleach", "Cashew", "Peanut" };
+
 
 //3 Vectors that the words from the word array will be sorted into. Words will be selected from the array the user chooses at game start.
 std::vector<std::string> shortWords;

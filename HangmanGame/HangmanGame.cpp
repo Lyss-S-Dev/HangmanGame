@@ -3,7 +3,10 @@
 
 
 #include "HangmanGame.h"
+#include "WordLoader.h"
 
+WordLoader hangmanWords;
+const std::string WORD_FILE_NAME = "hangmanword.txt";
 
 void DrawHangmanImage(int incorrectGuessesLeft)
 {
@@ -376,7 +379,7 @@ std::string PickWordToGuess(int difficulty)
 
 void PopulateWordArrays()
 {
-    for (std::string wordToSort : wordArray)
+    for (std::string wordToSort : hangmanWords.GetWordVector())
     {
         int wordLength = wordToSort.length();
 
@@ -409,7 +412,7 @@ void PrintWordArrays()
         std::cout << sWord << ", ";
     }
     std::cout << "\n";
-    std::cout << shortWords.size() << " words in the list\n";
+    std::cout << shortWords.size() << " words in the list\n\n";
 
     std::cout << "MEDIUM WORDS: \n";
     for (std::string mWord : mediumWords)
@@ -417,7 +420,7 @@ void PrintWordArrays()
         std::cout << mWord << ", ";
     }
     std::cout << "\n";
-    std::cout << mediumWords.size() << " words in the list\n";
+    std::cout << mediumWords.size() << " words in the list\n\n";
 
     std::cout << "LONG WORDS: \n";
     for (std::string lWord : longWords)
@@ -425,7 +428,7 @@ void PrintWordArrays()
         std::cout << lWord << ", ";
     }
     std::cout << "\n";
-    std::cout << longWords.size() << " words in the list\n";
+    std::cout << longWords.size() << " words in the list\n\n";
     std::cout << "ALL LISTS PRINTED\n\n";
 }
 
@@ -525,7 +528,10 @@ void CheckPlayerWantsToPlayAgain()
 
 int main()
 {
-    
+    hangmanWords.OpenWordFile(WORD_FILE_NAME);
+    hangmanWords.AddWordsToString(WORD_FILE_NAME);
+    hangmanWords.LoadWordsIntoVector();
+    hangmanWords.CloseWordFile();
 
     //WORD COLLECTION POPULATION
     PopulateWordArrays();
