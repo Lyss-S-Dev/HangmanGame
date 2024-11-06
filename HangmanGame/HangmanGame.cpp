@@ -549,12 +549,13 @@ int main()
         targetWord = "Nothing";
         bool validDifficulty = false;
         int userDifficultyInput = 0;
+        bool showWord = false;
 
         while (!validDifficulty)
         {
             std::cin.clear();
             std::cout << "Please enter a number to select your difficulty!\n";
-            std::cout << "1. Short Word  2. Medium Word  3. Long Word\n4.DEBUG: Display Word Lists\n\n";
+            std::cout << "1. Short Word  2. Medium Word  3. Long Word\n4. DEBUG: Display Word Lists  5. DEBUG: Show Word = " << showWord << "\n\n";
             std::cin >> userDifficultyInput;
 
             if (userDifficultyInput >= 1 && userDifficultyInput <= 3)
@@ -566,6 +567,10 @@ int main()
                 PrintWordArrays();
                 validDifficulty = false;
 
+            }
+            else if (userDifficultyInput == 5)
+            {
+                showWord = !showWord;
             }
             else
             {
@@ -582,7 +587,11 @@ int main()
     
         targetWord = PickWordToGuess(userDifficultyInput);
 
-        std::cout << "DEBUG The word to guess is: " << targetWord << "\n\n";
+        if (showWord)
+        {
+            std::cout << "DEBUG The word to guess is: " << targetWord << "\n\n";
+        }
+        
 
         //INITIALISE GAME LOOP VARIABLES
 
