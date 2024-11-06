@@ -131,6 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HangmanGame.h" />
+    <ClInclude Include="WordLoader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="hangmanword.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -23,5 +23,13 @@
     <ClInclude Include="HangmanGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WordLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="hangmanword.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
