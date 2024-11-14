@@ -8,6 +8,18 @@
 WordLoader hangmanWords;
 const std::string WORD_FILE_NAME = "hangmanword.txt";
 
+void RunWordLoader()
+{
+    //Opens the Text file with the words
+    hangmanWords.OpenWordFile(WORD_FILE_NAME);
+    //places all the words into a string
+    hangmanWords.AddWordsToString(WORD_FILE_NAME);
+    //deconstructs the vectors and places them into a master vector
+    hangmanWords.LoadWordsIntoVector();
+    //closes word file
+    hangmanWords.CloseWordFile();
+}
+
 void DrawHangmanImage(int incorrectGuessesLeft)
 {
     switch (incorrectGuessesLeft)
@@ -374,7 +386,14 @@ std::string PickWordToGuess(int difficulty)
         wordIndex = rand() % longWords.size();
         return longWords[wordIndex];
         
+
+    default:
+
+        std::cerr << "ERROR: YOU SHOULDN'T BE HERE";
+        return "error";
     }
+    
+    
 }
 
 void PopulateWordArrays()
@@ -528,10 +547,8 @@ void CheckPlayerWantsToPlayAgain()
 
 int main()
 {
-    hangmanWords.OpenWordFile(WORD_FILE_NAME);
-    hangmanWords.AddWordsToString(WORD_FILE_NAME);
-    hangmanWords.LoadWordsIntoVector();
-    hangmanWords.CloseWordFile();
+    //USE WORD LOADER CLASS TO OPEN FILE
+    RunWordLoader();
 
     //WORD COLLECTION POPULATION
     PopulateWordArrays();
@@ -539,6 +556,7 @@ int main()
 
     //SHOW TITLE OF GAME
     std::cout << "THE NAME OF THE GAME IS...\n" << "HANGMAN!\n\n";
+    std::cout << "By Lyssia Sproston. \n";
 
 
     while (isGameActive)

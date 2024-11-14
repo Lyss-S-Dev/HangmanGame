@@ -5,11 +5,10 @@ class WordLoader
 {
 	std::vector<std::string> loadedWordsVector;
 	
-
 	std::ifstream wordFile;
 	
 
-	std::string loadedWordsString =" ";
+	std::string* loadedWordsString = new std::string;
 
 	bool ValidateWord(std::string check);
 
@@ -38,10 +37,10 @@ void WordLoader::CloseWordFile()
 
 void WordLoader::AddWordsToString(std::string filename)
 {
-
+	//Loads the contents of the word file into a string declared on the heap. 
 	if (wordFile.is_open())
 	{
-		wordFile >> loadedWordsString;
+		wordFile >> *loadedWordsString;
 	}
 	else
 	{
@@ -56,29 +55,36 @@ void WordLoader::LoadWordsIntoVector()
 
 	while (wordsRemaining)
 	{
-		int periodIndex = loadedWordsString.find('.');
-		std::string stringToValidate = loadedWordsString.substr(0, periodIndex);
+		//find a period in the text file
+		int periodIndex = loadedWordsString->find('.');
+		//creates a substring from the start to where the period has been found
+		std::string stringToValidate = loadedWordsString->substr(0, periodIndex);
 
-
+		//checks if the word is valid
 		if (ValidateWord(stringToValidate))
 		{
+			//if the word is valid, add it to the master array and erase the substring from the loaded string
 			loadedWordsVector.push_back(stringToValidate);
-			loadedWordsString.erase(0, periodIndex + 1);
+			loadedWordsString->erase(0, periodIndex + 1);
 			validWordsLoaded++;
 		}
 		else
 		{
-			loadedWordsString.erase(0, periodIndex + 1);
+			//if the word is not valid, only erase the string from the loaded word string
+			loadedWordsString->erase(0, periodIndex + 1);
 			failedWords++;
 		}
 
-		if (loadedWordsString.length() <= 0)
+		//if the string is empty, there are no more words
+		if (loadedWordsString->length() <= 0)
 		{
 			wordsRemaining = false;
 		}
 
 	}
 
+	//remove the loaded words string from the heap
+	delete loadedWordsString;
 	std::cout << "Loading Finished! Words added into the program: " << validWordsLoaded << " Failed validation checks: " << failedWords << "\n\n";
 	
 
@@ -88,12 +94,13 @@ bool WordLoader::ValidateWord(std::string check)
 {
 	bool wordIsValid = true;
 
+	//rejects the word if it has less than 3 characters
 	if (check.length() <= 3)
 	{
 		wordIsValid = false;
 	}
 
-
+	//checks if the string only alphabetical characters
 	for (char c : check)
 	{
 		if (isalpha(c))
