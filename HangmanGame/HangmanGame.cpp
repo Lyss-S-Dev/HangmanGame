@@ -13,7 +13,11 @@ void RunWordLoader()
     //Opens the Text file with the words
     hangmanWords.OpenWordFile(WORD_FILE_NAME);
     //places all the words into a string
-    hangmanWords.AddWordsToString(WORD_FILE_NAME);
+    if (!hangmanWords.AddWordsToString(WORD_FILE_NAME))
+    {
+        hangmanWords.CloseWordFile();
+        exit(FAILED_TO_LOAD_WORDS_ERROR);
+    }
     //deconstructs the vectors and places them into a master vector
     hangmanWords.LoadWordsIntoVector();
     //closes word file

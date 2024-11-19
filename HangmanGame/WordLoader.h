@@ -1,5 +1,16 @@
 #pragma once
 #include <fstream>
+#include <exception>
+
+class WordFileMissing : public std::exception
+{
+	const char* what() const throw()
+	{
+		return "ERROR: Word file missing or unreadable!";
+	}
+}wordFileMissing;
+
+
 
 class WordLoader
 {
@@ -19,7 +30,7 @@ public:
 	
 	std::vector<std::string> GetWordVector();
 	void OpenWordFile(std::string fileName);
-	void AddWordsToString(std::string fileName);
+	bool AddWordsToString(std::string fileName);
 	void CloseWordFile();
 	void LoadWordsIntoVector();
 
@@ -28,6 +39,7 @@ public:
 void WordLoader::OpenWordFile(std::string fileName)
 {
 	wordFile.open(fileName);
+	
 }
 
 void WordLoader::CloseWordFile()
@@ -35,17 +47,30 @@ void WordLoader::CloseWordFile()
 	wordFile.close();
 }
 
-void WordLoader::AddWordsToString(std::string filename)
+bool WordLoader::AddWordsToString(std::string filename)
 {
-	//Loads the contents of the word file into a string declared on the heap. 
-	if (wordFile.is_open())
+
+	try
 	{
-		wordFile >> *loadedWordsString;
+		if (!wordFile.is_open() || wordFile.bad())
+		{
+			throw wordFileMissing;
+		}
+		else
+		{
+			wordFile >> *loadedWordsString;
+			return true;
+		}
 	}
-	else
+	catch (std::exception& e)
 	{
-		std::cerr << "ERROR: Hangman Word File is not open. Please ensure the folder containing the program has a \"" << filename << "\" document";
+		std::cerr << e.what();
+		std::cerr << "Please ensure " << filename << " is located in the same directory as this program.\n";
+		return false;
 	}
+
+
+	
 
 }
 

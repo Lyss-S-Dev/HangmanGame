@@ -15,7 +15,7 @@ char userGuess;
 const int startNumOfIncorrectGuesses = 12;
 int currentNumOfIncorrectGuesses;
 
-
+const int FAILED_TO_LOAD_WORDS_ERROR = 50;
 
 //3 Vectors that the words from the word array will be sorted into. Words will be selected from the array the user chooses at game start.
 std::vector<std::string> shortWords;
